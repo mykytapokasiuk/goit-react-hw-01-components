@@ -1,0 +1,26 @@
+.container {
+    width: 768px;
+    padding: 0 15px;
+    margin: 0 auto;
+    outline: 1px solid red !important;
+}
+
+.profile {
+    padding-top: 30px;
+}
+
+.description {}
+
+.avatar {}
+
+.name {}
+
+.tag {}
+
+.location {}
+
+.stats {}
+
+.label {}
+
+.quantity {}
