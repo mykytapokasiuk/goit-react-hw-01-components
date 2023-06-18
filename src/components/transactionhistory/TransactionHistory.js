@@ -6,11 +6,11 @@ const TransactionHistory = ({ items }) => {
   function changeColorByTransactionType(item) {
     switch (item.type) {
       case 'invoice':
-        return 'yellow';
+        return 'yellowgreen';
       case 'payment':
         return 'red';
       case 'withdrawal':
-        return 'aquamarine';
+        return 'yellow';
       case 'deposit':
         return 'green';
       default:
