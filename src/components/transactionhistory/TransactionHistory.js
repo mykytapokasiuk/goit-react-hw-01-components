@@ -3,24 +3,45 @@ import PropTypes from 'prop-types';
 import css from './TransactionHistory.module.css';
 
 const TransactionHistory = ({ items }) => {
+  function changeColorByTransactionType(item) {
+    switch (item.type) {
+      case 'invoice':
+        return 'yellow';
+      case 'payment':
+        return 'red';
+      case 'withdrawal':
+        return 'aquamarine';
+      case 'deposit':
+        return 'green';
+      default:
+        return 'antiquewhite';
+    }
+  }
   return (
     <section className={css.transaction}>
       <div className={css.container}>
         <table className={css.transactionHistory}>
-          <thead>
+          <thead className={css.transactionHistoryHeader}>
             <tr>
-              <th>Type</th>
-              <th>Amount</th>
-              <th>Currency</th>
+              <th className={css.thHeaderItem}>Type</th>
+              <th className={css.thHeaderItem}>Amount</th>
+              <th className={css.thHeaderItem}>Currency</th>
             </tr>
           </thead>
 
-          <tbody>
+          <tbody className={css.transactionHistoryBody}>
             {items.map(item => (
-              <tr key={item.id}>
-                <td>{item.type}</td>
-                <td>{item.amount}</td>
-                <td>{item.currency}</td>
+              <tr className={css.thBodyRow} key={item.id}>
+                <td
+                  className={css.thBodyItem}
+                  style={{
+                    backgroundColor: changeColorByTransactionType(item),
+                  }}
+                >
+                  {item.type}
+                </td>
+                <td className={css.thBodyItem}>{item.amount}</td>
+                <td className={css.thBodyItem}>{item.currency}</td>
               </tr>
             ))}
           </tbody>
@@ -31,7 +52,7 @@ const TransactionHistory = ({ items }) => {
 };
 
 TransactionHistory.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired)),
 };
 
 export default TransactionHistory;

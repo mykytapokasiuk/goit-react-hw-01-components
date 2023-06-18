@@ -2,11 +2,64 @@
     width: 768px;
     padding: 0 15px;
     margin: 0 auto;
-    outline: 1px solid red !important;
+    display: flex;
+    justify-content: center;
 }
 
 .transaction {
-    padding: 30px 0;
+    padding: 50px 0 60px 0;
 }
 
-.transactionHistory {}
+.transactionHistory {
+    width: 600px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transactionHistoryHeader {
+    background-color: aqua;
+    border-radius: 2px;
+    border: 1px solid rgb(97, 79, 79);
+}
+
+.thHeaderItem {
+    font-size: 20px;
+    width: calc((600px - 30px) / 3);
+    border: 1px solid rgb(97, 79, 79);
+    border-radius: 2px;
+}
+
+.transactionHistoryBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.thBodyRow {
+    border: 1px solid rgb(97, 79, 79);
+    border-radius: 2px;
+    background-color: antiquewhite;
+}
+
+.thBodyItem:nth-child(1) {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.thBodyItem:nth-child(2) {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.thBodyItem:nth-child(3) {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.thBodyItem {
+    width: calc((600px - 30px) / 3);
+    text-align: center;
+    border: 1px solid rgb(97, 79, 79);
+    border-radius: 2px;
+}
