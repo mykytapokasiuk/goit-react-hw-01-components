@@ -1,22 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { changeColorByTransactionType } from '../../styles/utils.js';
 import css from './TransactionHistory.module.css';
 
 const TransactionHistory = ({ items }) => {
-  function changeColorByTransactionType(item) {
-    switch (item.type) {
-      case 'invoice':
-        return 'yellowgreen';
-      case 'payment':
-        return 'red';
-      case 'withdrawal':
-        return 'yellow';
-      case 'deposit':
-        return 'green';
-      default:
-        return 'antiquewhite';
-    }
-  }
   return (
     <section className={css.transaction}>
       <div className={css.container}>
@@ -52,7 +39,14 @@ const TransactionHistory = ({ items }) => {
 };
 
 TransactionHistory.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired)),
+  items: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default TransactionHistory;
